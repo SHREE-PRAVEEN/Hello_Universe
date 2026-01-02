@@ -1,5 +1,3 @@
-'use client';
-
 import * as React from 'react';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -12,7 +10,7 @@ import { truncateAddress, formatCrypto } from '@/lib/utils';
 export default function BlockchainPage() {
   const [isWalletModalOpen, setIsWalletModalOpen] = React.useState(false);
   const { isConnected, address, balance, chainId, disconnectWallet } = useWeb3();
-  const { selectedChain, tokenBalances, transactions, setSelectedChain } = useChainStore();
+  const { setSelectedChain } = useChainStore();
 
   const chains = [
     { id: 1, name: 'Ethereum', icon: '⟠', color: 'from-blue-500 to-purple-600' },
@@ -82,7 +80,7 @@ export default function BlockchainPage() {
               {chains.map((chain) => (
                 <button
                   key={chain.id}
-                  onClick={() => setSelectedChain(chain.id as any)}
+                  onClick={() => setSelectedChain(chain.id as number)}
                   className={`flex items-center gap-2 rounded-xl border px-4 py-2.5 text-sm font-medium transition-all ${
                     chainId === chain.id
                       ? 'border-cyan-500 bg-cyan-500/10 text-cyan-400'

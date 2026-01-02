@@ -14,7 +14,9 @@ import { useUserStore } from '@/store/useUserStore';
 const navItems = [
   { label: 'Home', href: '/' },
   { label: 'AI Labs', href: '/ai-labs' },
+  { label: 'Tech Dump', href: '/tech-dump' },
   { label: 'Blockchain', href: '/blockchain' },
+  { label: 'Our Programs', href: '/our-programs' },
 ];
 
 // ============================================
@@ -54,11 +56,13 @@ export function Navbar() {
       <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600">
-            <span className="text-xl font-bold text-white">HU</span>
-          </div>
+            <img
+            src="/assets/logos/logo.png"
+            alt="Hello Universe Logo"
+            className="h-10 w-10 rounded-xl object-cover"
+            />
           <span className="hidden text-xl font-bold text-zinc-900 dark:text-white sm:block">
-            Hello Universe
+            Hello Universe !
           </span>
         </Link>
 
