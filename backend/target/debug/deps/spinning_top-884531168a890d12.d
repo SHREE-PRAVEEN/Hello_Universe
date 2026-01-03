@@ -1,0 +1,10 @@
+/media/shreepraveen/New Volume/dev_work/Hello_Universe/backend/target/debug/deps/spinning_top-884531168a890d12.d: /home/shreepraveen/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/spinning_top-0.3.0/src/lib.rs /home/shreepraveen/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/spinning_top-0.3.0/src/relax.rs /home/shreepraveen/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/spinning_top-0.3.0/src/rw_spinlock.rs /home/shreepraveen/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/spinning_top-0.3.0/src/spinlock.rs
+
+/media/shreepraveen/New Volume/dev_work/Hello_Universe/backend/target/debug/deps/libspinning_top-884531168a890d12.rlib: /home/shreepraveen/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/spinning_top-0.3.0/src/lib.rs /home/shreepraveen/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/spinning_top-0.3.0/src/relax.rs /home/shreepraveen/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/spinning_top-0.3.0/src/rw_spinlock.rs /home/shreepraveen/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/spinning_top-0.3.0/src/spinlock.rs
+
+/media/shreepraveen/New Volume/dev_work/Hello_Universe/backend/target/debug/deps/libspinning_top-884531168a890d12.rmeta: /home/shreepraveen/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/spinning_top-0.3.0/src/lib.rs /home/shreepraveen/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/spinning_top-0.3.0/src/relax.rs /home/shreepraveen/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/spinning_top-0.3.0/src/rw_spinlock.rs /home/shreepraveen/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/spinning_top-0.3.0/src/spinlock.rs
+
+/home/shreepraveen/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/spinning_top-0.3.0/src/lib.rs:
+/home/shreepraveen/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/spinning_top-0.3.0/src/relax.rs:
+/home/shreepraveen/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/spinning_top-0.3.0/src/rw_spinlock.rs:
+/home/shreepraveen/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/spinning_top-0.3.0/src/spinlock.rs:

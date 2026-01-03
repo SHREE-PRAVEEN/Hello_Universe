@@ -4,3 +4,9 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
+
+# Web framework
+actix-web = "4"
+actix-cors = "0.7"
+actix-governor = "0.5"
+actix-rt = "2"
