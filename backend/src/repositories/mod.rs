@@ -1,0 +1,10 @@
+pub mod user_repo;
+pub mod org_repo;
+pub mod project_repo;
+pub mod media_repo;
+pub mod search_repo;
+pub mod ai_repo;
+pub mod commerce_repo;
+pub mod analytics_repo;
+pub mod moderation_repo;
+pub mod audit_repo;
