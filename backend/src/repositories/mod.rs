@@ -1,10 +1,19 @@
-pub mod user_repo;
+pub mod analytics_repo;
+pub mod auth_repo;
+pub mod commerce_repo;
+pub mod engagement_repo;
+pub mod media_repo;
+pub mod moderation_repo;
 pub mod org_repo;
 pub mod project_repo;
-pub mod media_repo;
 pub mod search_repo;
-pub mod ai_repo;
-pub mod commerce_repo;
-pub mod analytics_repo;
-pub mod moderation_repo;
-pub mod audit_repo;
+pub mod user_repo;
+
+pub use analytics_repo::AnalyticsRepo;
+pub use auth_repo::AuthRepo;
+pub use commerce_repo::CommerceRepo;
+pub use engagement_repo::EngagementRepo;
+pub use media_repo::MediaRepo;
+pub use moderation_repo::ModerationRepo;
+pub use project_repo::ProjectRepo;
+pub use user_repo::UserRepo;
