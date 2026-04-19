@@ -1,36 +1,46 @@
+use backend::{config, routes, utils::errors::AppError};
 use std::net::SocketAddr;
-
-use anyhow::Context;
-use backend::config::{db, env::AppConfig, tracing as tracing_cfg};
-use backend::{AppState, build_app};
-use std::sync::Arc;
-use tokio::net::TcpListener;
 use tracing::info;
-
+ 
 #[tokio::main]
 async fn main() -> anyhow::Result<()> {
+    // Load .env file
     dotenvy::dotenv().ok();
-    tracing_cfg::init_tracing();
-
-    let config = AppConfig::from_env().context("failed to load environment")?;
-    let pool = db::connect_pg_pool(&config).await?;
-    let redis = backend::config::redis::build_redis_client(&config.redis_url)?;
-
-    let state = Arc::new(AppState::new(config.clone(), pool, redis));
-    let app = build_app(state);
-
-    let addr: SocketAddr = format!("{}:{}", config.host, config.port)
-        .parse()
-        .context("invalid host/port bind address")?;
-
-    let listener = TcpListener::bind(addr)
+ 
+    // Initialize tracing
+    backend::config::tracing::init_tracing();
+ 
+    info!("Starting Robotics Platform Backend");
+ 
+    // Build app state (DB pool, Redis, config)
+    let state = config::AppState::new().await?;
+ 
+    // Run DB migrations
+    sqlx::migrate!("./migrations")
+        .run(&state.db)
         .await
-        .context("failed to bind TCP listener")?;
-
-    info!("backend listening on {}", addr);
-    axum::serve(listener, app)
-        .await
-        .context("axum server failed")?;
-
+        .expect("Failed to run database migrations");
+ 
+    info!("Database migrations complete");
+ 
+    // Start background jobs
+    backend::jobs::start_background_jobs(state.clone()).await;
+ 
+    // Build the router
+    let app = routes::create_router(state.clone());
+ 
+    let addr: SocketAddr = format!(
+        "{}:{}",
+        state.config.host,
+        state.config.port
+    )
+    .parse()?;
+ 
+    info!("Listening on {}", addr);
+ 
+    let listener = tokio::net::TcpListener::bind(addr).await?;
+    axum::serve(listener, app).await?;
+ 
     Ok(())
 }
+ 
